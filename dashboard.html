@@ -62,7 +62,7 @@
             line-height: 1.45;
         }
 
-                footer {
+        footer {
             text-align: center;
             padding: 24px;
             color: var(--gray);
@@ -70,12 +70,24 @@
             text-decoration: none;
         }
 
+        .app {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            min-height: 100vh;
+        }
+
+        aside {
+            border-right: 1px solid var(--line);
+            padding: 20px 15px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
     </style>
 </head>
     
 <body>
-
-        <p>this is a test</p>
     <div class="app">
         <aside>
             <a href="index.html" class="brand"><img src="images/logo.png" class="logo"><span class="title">just<b>codebro</b></span></a>
