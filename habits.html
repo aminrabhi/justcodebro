@@ -131,10 +131,38 @@
             margin-bottom: 16px;
         }
 
+        input, select, textarea {
+            font: 500 15px Outfit, sans-serif;
+            background: var(--surface);
+            color: var(--white);
+            border: 1.5px solid var(--line);
+            border-radius: 10px;
+            padding: 11px 14px;
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--blue);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
         .row {
             display: flex;
             gap: 10px;
             align-items: center;
+        }
+
+        .row input {
+            flex: 1;
+        }
+
+        .row select {
+            width: auto;
         }
 
     </style>
