@@ -229,6 +229,7 @@
         function save() {
             try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
         }
+        let state = { ...defaults, ...load()};
 
         function render() {
             $("entryList").innerHTML = [...state.journal].reverse().map((e) => `<div class="item entry">
