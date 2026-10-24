@@ -250,11 +250,11 @@
         document.addEventListener("click", (e) => {
             const button = e.target.closest("[data-do]");
             if (!button) return;
-            actions[button.data.do]{button.dateset.id};
+            actions[button.data.do](button.dateset.id);
             save(); render();
 
         }
-    )
+    );
 
     render();
     </script>
