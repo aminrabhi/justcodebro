@@ -237,7 +237,7 @@
             </div>`).join("") || `<p class="muted">No entries yet.</p>`;
         }
 
-        const actions {
+        const actions = {
             addEntry() {
                 const title = $("entryTitle").value.trim(), body = $("entryBody").value.trim();
                 if (!title && !body) return;
@@ -245,7 +245,7 @@
                 $("entryTitle").value = $("entryBody").value = "";
             },
             removeEntry(id) { state.journal = state.journal.filter((e) => e.id !=id);}
-        }
+        };
 
         document.addEventListener("click", (e) => {
             const button = e.target.closest("[data-do]");
