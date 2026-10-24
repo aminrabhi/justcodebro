@@ -65,6 +65,10 @@
             font: 700 15px Outfit, sans-serif;
         }
 
+        .btn:hover {
+            background: var(--blue-dark);
+        }
+
         body {
             font-family: Outfit, system-ui, sans-serif;
             background: #000000;
@@ -183,6 +187,25 @@
             border-top: 1px solid var(--line);
         }
 
+        .item:first-child {
+            border-top: 0;
+        }
+
+        .item .text {
+            flex: 1; 
+            font-weight: 600;
+        }
+
+        .check {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            border: 2px solid var(--white);
+            background: none; 
+            color: var(--white);
+            font-weight: 900;
+        }
+
 
     </style>
 </head>
@@ -228,7 +251,7 @@
 
         function habitRow(h) {
             return `<div class="item ${h.done ? "done" : ""}">
-                
+                <button class="check" data-do"toggle" data-id="${h.id}" aria-label="Toggle ${esc(h.text)}">${h.done ? "✓" : ""}</button>
                 
                 `
         }
