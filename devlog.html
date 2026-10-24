@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title>Journal | JustCodeBro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
 
         :root {
@@ -19,16 +19,69 @@
             --surface: #0B0F18;
             --radius: 14px;
             color-scheme: dark;
-            }
-            
-        .outfit-font {
-            font-family: "Outfit", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 900;
-            font-style: normal;
         }
 
-        
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-family: Outfit, system-ui, sans-serif;
+            background: #000;
+            color: var(--white);
+            line-height: 1.45;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--blue);
+            outline-offset: 2px;
+        }
+
+        .muted {
+            color: var(--gray);
+        }
+
+
+        .app {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            min-height: 100vh;
+        }
+
+        aside {
+            border-right: 1px solid var(--line);
+            padding: 20px 14px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        main {
+            padding: 28px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+
         .brand {
             display: flex;
             align-items: center;
@@ -37,8 +90,7 @@
             text-decoration: none;
         }
 
-
-        .logo {
+        .mascot {
             width: 44px;
             height: 44px;
         }
@@ -49,37 +101,10 @@
             letter-spacing: -0.03em;
             line-height: 1;
         }
-        
+
         .title b {
             color: var(--blue);
             font-weight: 900;
-        }
-
-        body {
-            font-family: Outfit, system-ui, sans-serif;
-            background: #000000;
-            color: var(--white);
-            line-height: 1.45;
-        }
-
-        .app {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            min-height: 100vh;
-        }
-
-        aside {
-            border-right: 1px solid var(--line);
-            padding: 20px 15px;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-        }
-
-        main {
-            padding: 30px;
-            max-width: 1000px;
-            width: 100%;
         }
 
 
@@ -94,6 +119,7 @@
             border-radius: 10px;
             color: var(--gray);
             text-decoration: none;
+            font-weight: 600;
         }
 
         nav a:hover {
@@ -107,32 +133,6 @@
         }
 
 
-        a {
-            color: inherit;
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 38px);
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-
-        .btn  {
-            display: inline-block;
-            background: var(--blue);
-            color: var(--white);
-            border: 0;
-            border-radius: 10px;
-            padding: 11px 18px;
-            font: 700 15px Outfit, sans-serif;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: var(--blue-dark);
-        }
-
-
         .card {
             background: var(--surface);
             border: 1px solid var(--line);
@@ -141,13 +141,64 @@
             margin-bottom: 16px;
         }
 
+        .card.dark {
+            background: var(--navy);
+            border: 0;
+        }
+
+        .big {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+
+        .btn {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--white);
+            border: 0;
+            border-radius: 10px;
+            padding: 11px 18px;
+            font: 700 15px Outfit, sans-serif;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--blue-dark);
+        }
+
+        .btn.alt {
+            background: none;
+            border: 1.5px solid var(--white);
+        }
+
+        .btn.alt:hover {
+            background: var(--blue-light);
+        }
+
+        .link {
+            background: none;
+            border: 0;
+            color: var(--gray);
+            font: 600 14px Outfit, sans-serif;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            color: var(--white);
+        }
+
+
         input, select, textarea {
-            font: 500px 15px Outfit, sans-serif;
+            font: 500 15px Outfit, sans-serif;
             background: var(--surface);
             color: var(--white);
             border: 1.5px solid var(--line);
             border-radius: 10px;
-            padding: 10px 15px;
+            padding: 11px 14px;
             width: 100%;
         }
 
@@ -169,11 +220,11 @@
         }
 
         .field {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .row {
-            display: flex; 
+            display: flex;
             gap: 10px;
             align-items: center;
         }
@@ -187,80 +238,107 @@
         }
 
 
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .item:first-child {
+            border-top: 0;
+        }
+
+        .item .text {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .entry {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+        }
+
+        .entry p {
+            white-space: pre-wrap;
+            color: var(--gray);
+        }
+
     </style>
 </head>
-    
+
 <body>
     <div class="app">
         <aside>
-            <a href="index.html" class="brand"><img src="images/logo.png" class="logo"><span class="title">just<b>codebro</b></span></a>
+            <a class="brand" href="index.html"><img class="mascot" src="logo.png" alt="JustCodeBro logo"><span class="title">just<b>codebro</b></span></a>
             <nav>
                 <a href="dashboard.html">Dashboard</a>
                 <a href="habits.html">Habits</a>
                 <a href="analytics.html">Analytics</a>
                 <a href="projects.html">Projects</a>
                 <a href="ideas.html">Ideas</a>
-                <a href="devlog.html" class="on">Devlog</a>
+                <a href="journal.html" class="on">Journal</a>
                 <a href="profile.html">Profile</a>
             </nav>
         </aside>
         <main>
-            <h1>Devlog</h1>
-            <h2>updated on vercel 9:28 AM</h2>
+            <h1>Journal</h1>
             <div class="card">
-                <div class="field"><label for="entryTitle">Title</label><input id="entryTitle" maxlength="100px"></div>
+                <div class="field"><label for="entryTitle">Title</label><input id="entryTitle" maxlength="80"></div>
                 <div class="field"><label for="entryBody">Entry</label><textarea id="entryBody"></textarea></div>
-                <button class="btn" data-do="addEntry">Save devlog</button>
+                <button class="btn" data-do="addEntry">Save entry</button>
             </div>
-            <div class="card"><div class="entryList"></div></div>
-        </main>   
+            <div class="card"><div id="entryList"></div></div>
+        </main>
     </div>
 
     <script>
         const KEY = "justcodebro";
-const defaults = {
-  journal: []
-};
+        const defaults = {
+            journal: []
+        };
 
-function load() {
-  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
-}
-function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
-}
-let state = { ...defaults, ...load() };
-
-
-const $ = (id) => document.getElementById(id);
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+        function load() {
+            try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+        }
+        function save() {
+            try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+        }
+        let state = { ...defaults, ...load() };
 
 
-function render() {
-  $("entryList").innerHTML = [...state.journal].reverse().map((e) => `<div class="item entry">
-    <b>${esc(e.title)}</b><span class="muted" style="font-size:13px">${new Date(e.id).toLocaleDateString()}</span>
-    <p>${esc(e.body)}</p><button class="link" style="align-self:flex-start" data-do="removeEntry" data-id="${e.id}">Delete</button>
-  </div>`).join("") || `<p class="muted">No entries yet.</p>`;
-}
+        const $ = (id) => document.getElementById(id);
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 
-const actions = {
-  addEntry() {
-    const title = $("entryTitle").value.trim(), body = $("entryBody").value.trim();
-    if (!title && !body) return;
-    state.journal.push({ id: Date.now(), title: title || "Untitled entry", body });
-    $("entryTitle").value = $("entryBody").value = "";
-  },
-  removeEntry(id) { state.journal = state.journal.filter((e) => e.id != id); }
-};
+        function render() {
+            $("entryList").innerHTML = [...state.journal].reverse().map((e) => `<div class="item entry">
+                <b>${esc(e.title)}</b><span class="muted" style="font-size:13px">${new Date(e.id).toLocaleDateString()}</span>
+                <p>${esc(e.body)}</p><button class="link" style="align-self:flex-start" data-do="removeEntry" data-id="${e.id}">Delete</button>
+            </div>`).join("") || `<p class="muted">No entries yet.</p>`;
+        }
 
-document.addEventListener("click", (e) => {
-  const button = e.target.closest("[data-do]");
-  if (!button) return;
-  actions[button.dataset.do](button.dataset.id);
-  save(); render();
-});
 
-render();
+        const actions = {
+            addEntry() {
+                const title = $("entryTitle").value.trim(), body = $("entryBody").value.trim();
+                if (!title && !body) return;
+                state.journal.push({ id: Date.now(), title: title || "Untitled entry", body });
+                $("entryTitle").value = $("entryBody").value = "";
+            },
+            removeEntry(id) { state.journal = state.journal.filter((e) => e.id != id); }
+        };
+
+        document.addEventListener("click", (e) => {
+            const button = e.target.closest("[data-do]");
+            if (!button) return;
+            actions[button.dataset.do](button.dataset.id);
+            save(); render();
+        });
+
+        render();
     </script>
 
 </body>
