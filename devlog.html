@@ -183,8 +183,10 @@
         }
 
         .row select {
-            width: auto
+            width: auto;
         }
+
+
     </style>
 </head>
     
@@ -210,9 +212,52 @@
                 <button class="btn">Save devlog</button>
             </div class="card">
             <div class="card"><div class="entryList"></div></div>
-        </main>
-        
+        </main>   
     </div>
+
+    <script>
+
+        const KEY = "justcodebro";
+        const defaults = {
+            journal: []
+        };
+
+        function load() {
+            try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+        }
+
+        function save() {
+            try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+        }
+
+        function render() {
+            $("entryList").innerHTML = [...state.journal].reverse().map((e) => `<div class="item entry">
+            <b>${esc(e.title)}</b><span class="muted" style="font-size:13px">${new Date(e.id).toLocaleDateString()}</span>
+            <p>${esc(e.body)}</p><button class="link" style="align-self:flex-start" data-do="removeEntry" data-id="${e.id}">Delete</button>
+            </div>`).join("") || `<p class="muted">No entries yet.</p>`;
+        }
+
+        const actions {
+            addEntry() {
+                const title = $("entryTitle").value.trim(), body = $("entryBody").value.trim();
+                if (!title && !body) return;
+                state.journal.push({ id: Date.now(), title: title || "Untitled entry", body });
+                $("entryTitle").value = $("entryBody").value = "";
+            },
+            removeEntry(id) { state.journal = state.journal.filter((e) => e.id !=id);}
+        }
+
+        document.addEventListener("click", (e) => {
+            const button = e.target.closest("[data-do]");
+            if (!button) return;
+            actions[button.data.do]{button.dateset.id};
+            save(); render();
+
+        }
+    )
+
+    render();
+    </script>
 
 </body>
 </html>
