@@ -231,6 +231,8 @@
         }
         let state = { ...defaults, ...load()};
 
+        const $ = (id) => document.getElementById(id);
+
         function render() {
             $("entryList").innerHTML = [...state.journal].reverse().map((e) => `<div class="item entry">
             <b>${esc(e.title)}</b><span class="muted" style="font-size:13px">${new Date(e.id).toLocaleDateString()}</span>
