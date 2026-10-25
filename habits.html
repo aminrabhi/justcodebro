@@ -249,6 +249,10 @@
         }
         let state = { ...defaults, ...load() };
 
+        const $ = (id) => document.getElementById(id);
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+
         function habitRow(h) {
             return `<div class="item ${h.done ? "done" : ""}">
                 <button class="check" data-do"toggle" data-id="${h.id}" aria-label="Toggle ${esc(h.text)}">${h.done ? "✓" : ""}</button>
@@ -274,6 +278,16 @@
             },
             removeHabit(id) { state.habits = statte.habits.filer((h) => h.id != id); }
         };
+
+        document.addEventListener("click", (e) => {
+        const button = e.target.closest("[data-do]");
+        if (!button) return;
+        actions[button.dataset.do](button.dataset.id);
+        save(); render();
+        });
+        document.addEventListener("keydown", (e) => {            // press Enter in an input to click its button
+        if (e.key === "Enter" && e.target.dataset.enter) { actions[e.target.dataset.enter](); save(); render(); }
+        });
 
         render();
     </script>
