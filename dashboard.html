@@ -111,6 +111,90 @@
             color: inherit;
         }
 
+
+        * {
+            box-sizing: border-box; margin: 0;
+        }
+
+         h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+         .btn 
+        {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--white);
+            border: 0;
+            border-radius: 10px;
+            padding: 11px 18px;
+            font: 700 15px Outfit, sans-serif;
+            text-decoration: none;
+        }
+        
+        .btn.alt {
+            background: #000000;
+            border: 1.5px solid var(--white);
+        }
+
+
+        .btn:hover
+        {
+            background: var(--blue-dark);
+        }
+
+        .btn .alt:hover {
+            background: var(--blue-dark);
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(---line);
+            border-radius: var(--radius);
+            padding: 20px; 
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        nav .locked {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            color: var(--gray);
+            opacity: 0.55; 
+            cursor: not-allowed;
+        }
+
+        nav .locked::before {
+            content: ""; width: 16px; height: 16px; background: currentColor;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 018 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 018 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
+        }
+
+        nav .locked::after {
+            content: "Soon";
+            margin-left: auto;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background: var(--blue-light);
+        }
+
+
     </style>
 </head>
     
@@ -119,15 +203,28 @@
         <aside>
             <a href="index.html" class="brand"><img src="images/logo.png" class="logo"><span class="title">just<b>codebro</b></span></a>
             <nav>
-                <a href="dashboard.html" class="on">Dashboard</a>
+                <span class="locked" title="Coming in a future update">Dashboard</span>
                 <a href="habits.html">Habits</a>
-                <a href="analytics.html">Analytics</a>
-                <a href="projects.html">Projects</a>
+                <span class="locked" title="Coming in a future update">Analytics</span>
+                <span class="locked" title="Coming in a future update">Projects</span>
                 <a href="ideas.html">Ideas</a>
                 <a href="devlog.html">Devlog</a>
-                <a href="profile.html">Profile</a>
+                <span class="locked" title="Coming in a future update">Profile</span>
             </nav>
         </aside>
+
+        <main>
+            <h1>Dashboard</h1>
+            <div class="card">
+                <h2>Coming in a future update</h2>
+                <p>The dashboard is still being built. For now, you can use these pages:</p>
+                <div class="buttons">
+                    <a class="btn" href="habits.html">Habits</a>
+                    <a class="btn alt" href="ideas.html">Ideas</a>
+                    <a class="btn alt" href="devlog.html">Devlog</a>
+                </div>
+            </div>
+        </main>
     </div>
 
 </body>
