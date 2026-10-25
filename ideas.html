@@ -62,6 +62,18 @@
             line-height: 1.45;
         }
 
+        h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
         .app {
             display: grid;
             grid-template-columns: 220px 1fr;
@@ -111,6 +123,17 @@
             color: inherit;
         }
 
+        .btn {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--white);
+            border: 0;
+            border-radius: 10px;
+            padding: 11px 18px;
+            font: 700 15px Outfit, sans-serif;
+            text-decoration: none;
+        }
+
     </style>
 </head>
     
@@ -128,6 +151,13 @@
                 <a href="profile.html">Profile</a>
             </nav>
         </aside>
+        <main>
+            <h1>Random programming idea</h1>
+            <div class="card">
+                <div id="ideaBox"></div>
+                <button class="btn" id="newIdea" style="margin-top:16px">Generate new Idea</button>
+            </div>
+        </main>
     </div>
 
 </body>
