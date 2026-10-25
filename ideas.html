@@ -74,6 +74,10 @@
             margin-bottom: 12px;
         }
 
+        .muted {
+            color: var(--gray);
+        }
+
         .app {
             display: grid;
             grid-template-columns: 220px 1fr;
@@ -134,6 +138,21 @@
             text-decoration: none;
         }
 
+        .idea-row {
+            padding: 14px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .idea-row:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .idea-row p {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
     </style>
 </head>
     
@@ -159,6 +178,48 @@
             </div>
         </main>
     </div>
+    <script>
+        const $ = (id) => document.getElementById(id);
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    
+        const ideaData = {
+            languages: [
+                "HTML",
+                "JavaScript",
+                "TypeScript",
+                "Rust",
+                "Go",
+            ],
+            themes: {
+                "Placeholder": [
+                    "placeholder",
+                ]
+            },
+            twists: [
+                "placeeholder",
+            ]
+        };
+
+        const pick = (list) => list[Math.floor(Math.random() * list.length)];
+        function makeIdea() {
+        const theme = pick(Object.keys(ideaData.themes));
+        return { language: pick(ideaData.languages), theme, idea: pick(ideaData.themes[theme]), twist: pick(ideaData.twists) };
+        }
+        let idea = makeIdea();
+
+        function render () {
+            const rows = [
+                ["Programming language", idea.language],
+                ["Theme", idea.theme],
+                ["Idea", idea.idea],
+                ["Unecpected twist", idea.twist]
+            ];
+            $("ideaBox").innerHTML = rows.map(([label, value]) => `<div class="idea-row"><span class="muted">${label}</span><p>${esc(value)}</p></div>`).join("");
+        }
+
+        $("newIdea").addEventListener("click", () => { idea = makeIdea(); render(); });
+        render();
+    </script>
 
 </body>
 </html>
