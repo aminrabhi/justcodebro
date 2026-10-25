@@ -255,7 +255,7 @@
 
         function habitRow(h) {
             return `<div class="item ${h.done ? "done" : ""}">
-                <button class="check" data-do"toggle" data-id="${h.id}" aria-label="Toggle ${esc(h.text)}">${h.done ? "✓" : ""}</button>
+                <button class="check" data-do="toggle" data-id="${h.id}" aria-label="Toggle ${esc(h.text)}">${h.done ? "✓" : ""}</button>
                 <span class="text">${esc(h.text)}</span>
                     <button class="link" data-do="removeHabit" data-id="${h.id}">Delete</button>
                 </div>`;
