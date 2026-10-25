@@ -297,7 +297,7 @@
                 state.habits.push({ id: Date.now(), text, done: false});
                 $("habitInput").value = "";
             },
-            removeHabit(id) { state.habits = state.habits.filer((h) => h.id != id); }
+            removeHabit(id) { state.habits = state.habits.filter((h) => h.id != id); }
         };
 
         document.addEventListener("click", (e) => {
