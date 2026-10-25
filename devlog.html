@@ -266,6 +266,33 @@
             color: var(--gray);
         }
 
+        nav .locked {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            color: var(--gray);
+            opacity: 0.55; 
+            cursor: not-allowed;
+        }
+
+        nav .locked::before {
+            content: ""; width: 16px; height: 16px; background: currentColor;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 018 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 018 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
+        }
+
+        nav .locked::after {
+            content: "Soon";
+            margin-left: auto;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background: var(--blue-light);
+        }
+
+
     </style>
 </head>
 
@@ -274,13 +301,13 @@
         <aside>
             <a class="brand" href="index.html"><img class="mascot" src="logo.png" alt="JustCodeBro logo"><span class="title">just<b>codebro</b></span></a>
             <nav>
-                <a href="dashboard.html">Dashboard</a>
+                <span class="locked" title="Coming in a future update">Dashboard</span>
                 <a href="habits.html">Habits</a>
-                <a href="analytics.html">Analytics</a>
-                <a href="projects.html">Projects</a>
+                <span class="locked" title="Coming in a future update">Analytics</span>
+                <span class="locked" title="Coming in a future update">Projects</span>
                 <a href="ideas.html">Ideas</a>
-                <a href="journal.html" class="on">Devlog</a>
-                <a href="profile.html">Profile</a>
+                <a href="devlog.html">Devlog</a>
+                <span class="locked" title="Coming in a future update">Profile</span>
             </nav>
         </aside>
         <main>
